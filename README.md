@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on **Private project**
 
-- 🌱 I’m currently learning **ReactJs**
+- 🌱 I’m currently learning **ReactJs,Mern,**
 
 - 📫 How to reach me **laoumeima@gmail.com**
 
