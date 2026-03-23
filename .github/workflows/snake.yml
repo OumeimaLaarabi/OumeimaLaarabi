@@ -1,0 +1,54 @@
+name: Generate Snake Animation
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: OumeimaLaarabi
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+      - uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+---
+
+**Step 4 — Commit the file**
+
+Scroll down, leave the commit message as-is or write "Add snake animation workflow", then click **"Commit new file"** (green button).
+
+---
+
+**Step 5 — Enable Actions permissions**
+
+1. Go to your repo **Settings** tab
+2. In the left sidebar click **Actions → General**
+3. Under **"Workflow permissions"**, select **"Read and write permissions"**
+4. Click **Save**
+
+---
+
+**Step 6 — Run the workflow manually (first time)**
+
+1. Click the **"Actions"** tab in your repo
+2. You'll see **"Generate Snake Animation"** in the left list — click it
+3. Click **"Run workflow"** (blue button on the right) → **"Run workflow"** again to confirm
+4. Wait ~1 minute for it to finish — you'll see a green ✅
+
+---
+
+**Step 7 — Verify it worked**
+
+After the workflow runs, go to:
+```
+https://github.com/OumeimaLaarabi/OumeimaLaarabi/tree/output
